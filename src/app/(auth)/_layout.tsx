@@ -1,13 +1,12 @@
-// app/(tabs)/_layout.tsx
-import AppTabs from '@/components/AppTabs';
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import { useColorScheme } from 'react-native';
+// src/app/(auth)/_layout.tsx
+import { Stack } from 'expo-router';
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function AuthLayout() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AppTabs />
-    </ThemeProvider>
+    <Stack screenOptions={{ headerShown: false, animation: 'fade' }}>
+      <Stack.Screen name='splash' />
+      <Stack.Screen name='login' />
+      <Stack.Screen name='register' />
+    </Stack>
   );
 }
